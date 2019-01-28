@@ -1,4 +1,4 @@
-FROM jdk:8
+FROM openjdk:8
 VOLUME /tmp
 COPY target/mobile-deposit-api-*.jar app.jar
 RUN bash -c 'touch /app.jar'
