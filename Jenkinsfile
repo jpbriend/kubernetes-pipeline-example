@@ -64,7 +64,6 @@ spec:
     stage('Deplopy to K8s') {
       steps {
         container('helm') {
-          sh 'helm version'
           sh ' echo "helm xxxxxxx" '
         }
       }
