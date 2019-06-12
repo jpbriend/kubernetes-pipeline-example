@@ -12,18 +12,19 @@ metadata:
 spec:
   containers:
   - name: maven
-    image: maven:3.6-jdk-8-alpine
+    image: maven:3.6.1-jdk-8-slim
     command:
     - cat
     tty: true
-  - name: docker
-    image: docker:stable
+  - name: kaniko
+    image: gcr.io/kaniko-project/executor:debug
+    imagePullPolicy: Always
     command:
-    - cat
+    - /busybox/cat
     tty: true
     volumeMounts:
-    - name: dockersock
-      mountPath: /var/run/docker.sock
+      - name: jenkins-docker-cfg
+        mountPath: /kaniko/.docker
   - name: helm
     image: lachlanevenson/k8s-helm:v2.12.3
     command:
@@ -31,9 +32,14 @@ spec:
     tty: true
 
   volumes:
-  - name: dockersock
-    hostPath:
-      path: /var/run/docker.sock
+  - name: jenkins-docker-cfg
+    projected:
+      sources:
+      - secret:
+          name: docker-credentials
+          items:
+            - key: .dockerconfigjson
+              path: config.json
 """
     }
   }
@@ -52,12 +58,14 @@ spec:
         }
       }
     }
-    stage('Docker image') {
+    stage('Build Docker image with Kaniko') {
       steps {
-        container('docker') {
-          sh 'docker build -t ${IMAGE}:${VERSION} .'
-          sh ' echo "docker login" '
-          sh ' echo "docker push ${IMAGE}:${VERSION}" '
+        container(name: 'kaniko', shell: '/busybox/sh') {
+          withEnv(['PATH+EXTRA=/busybox']) {
+            sh '''#!/busybox/sh
+            /kaniko/executor --context `pwd` --destination jpbriend/${IMAGE}:${VERSION}
+            '''
+           }
         }
       }
     }

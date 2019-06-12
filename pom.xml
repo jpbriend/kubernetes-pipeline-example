@@ -6,8 +6,6 @@
     <artifactId>mobile-deposit-api</artifactId>
     <version>0.0.19-SNAPSHOT</version>
     <name>Mobile Deposit API</name>
-    <description>CloudBees example Mobile Deposit API</description>
-    <url>https://github.com/kmadel/mobile-deposit-api</url>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -30,18 +28,6 @@
             <url>https://github.com/jpbriend</url>
         </developer>
     </developers>
-
-    <scm>
-        <url>https://github.com/cloudbees/mobile-deposit-api</url>
-        <connection>scm:git:https://github.com/cloudbees/mobile-deposit-api.git</connection>
-        <developerConnection>scm:git:https://github.com/cloudbees/mobile-deposit-api.git</developerConnection>
-        <tag>HEAD</tag>
-    </scm>
-
-    <organization>
-        <name>CloudBees, Inc.</name>
-        <url>http://www.cloudbees.com</url>
-    </organization>
 
     <properties>
         <java.version>1.8</java.version>
