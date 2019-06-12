@@ -47,7 +47,7 @@ spec:
   environment {
     //Use Pipeline Utility Steps plugin to read information from pom.xml into env variables
     IMAGE = readMavenPom().getArtifactId()
-    VERSION = readMavenPom().getVersion()
+    VERSION = readMavenPom().getVersion().replace("-SNAPSHOT", "")
   }
 
   stages {
