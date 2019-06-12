@@ -63,7 +63,7 @@ spec:
         container(name: 'kaniko', shell: '/busybox/sh') {
           withEnv(['PATH+EXTRA=/busybox']) {
             sh '''#!/busybox/sh
-            /kaniko/executor --context `pwd` --destination jpbriend/${IMAGE}:${VERSION}
+            /kaniko/executor --context `pwd` --destination jpbriend/${IMAGE}:latest
             '''
            }
         }
