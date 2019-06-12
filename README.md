@@ -2,7 +2,7 @@
 
 ## Requirement
 
-* Install the (Pipeline Utility Steps plugin)[https://plugins.jenkins.io/pipeline-utility-steps] for Jenkins.
+* Install the [Pipeline Utility Steps plugin](https://plugins.jenkins.io/pipeline-utility-steps) for Jenkins.
 
 * Create a Kubernetes secret to store the Docker Hub credentials:
 ```
