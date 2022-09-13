@@ -69,7 +69,7 @@
 							{
 								"name": "package",
 								"definition": "Run the maven package command",
-								"command": "mvn package",
+								"command": "mvn verify",
 								"properties": null
 							},
 							{
