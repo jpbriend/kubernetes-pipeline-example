@@ -77,6 +77,12 @@
 								"definition": "Copy final JAR to expected location",
 								"command": "cp -f target/*.jar .",
 								"properties": null
+							},
+							{
+								"name": "copy-test-reports",
+								"definition": "copy-test-reports",
+								"command": "cp target/surefire-reports/TEST-com.cloudbees.example.mobile.deposit.api.DepositEndpointTests.xml ./test.xml\ncp target/site/jacoco/jacoco.xml ./coverage.xml",
+								"properties": null
 							}
 						],
 						"docker_options": {}
