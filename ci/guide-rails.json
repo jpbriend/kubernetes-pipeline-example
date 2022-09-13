@@ -1,6 +1,6 @@
 {
 	"metadata": {
-		"version": 1
+		"version": 2
 	},
 	"application": {
 		"name": "kubernetes-pipeline-example",
@@ -75,7 +75,7 @@
 							{
 								"name": "copy-jar",
 								"definition": "Copy final JAR to expected location",
-								"command": "cp -f target/*.[jwe]ar **/target/*.[jwe]ar .",
+								"command": "cp -f target/*.jar .",
 								"properties": null
 							}
 						],
@@ -87,13 +87,7 @@
 		"exit_actions": {},
 		"default_properties": [],
 		"deployment_files": [],
-		"application_init": {},
-		"releases": [
-			{
-				"name": "consul",
-				"version": "latest"
-			}
-		]
+		"application_init": {}
 	},
 	"organization": {
 		"orgname": "CloudBees"
