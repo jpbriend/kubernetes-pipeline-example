@@ -81,7 +81,7 @@
 							{
 								"name": "copy-test-reports",
 								"definition": "copy-test-reports",
-								"command": "cp target/surefire-reports/TEST-com.cloudbees.example.mobile.deposit.api.DepositEndpointTests.xml ./test.xml\ncp target/site/jacoco/jacoco.xml ./coverage.xml",
+								"command": "# cp target/surefire-reports/TEST-com.cloudbees.example.mobile.deposit.api.DepositEndpoint# Tests.xml ./test.xml\ncp target/site/jacoco/jacoco.xml ./coverage.xml",
 								"properties": null
 							}
 						],
