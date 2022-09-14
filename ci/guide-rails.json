@@ -110,7 +110,7 @@
 							{
 								"name": "dockerBuild",
 								"definition": "dockerBuild",
-								"command": "apt-get -y -qq install awscli jq;\nenv; \naws sts assume-role --role-arn 'arn:aws:iam::189768267137:role/GuideRailsRole' --role-session-name Arch-GR-Session --query 'Credentials.[AccessKeyId,SecretAccessKey,SessionToken]';",
+								"command": "apt-get -y -qq install awscli jq;\nenv; \naws sts assume-role --role-arn 'arn:aws:iam::189768267137:role/GuideRailsRole' --role-session-name Arch-GR-Session --query 'Credentials.[AccessKeyId,SecretAccessKey,SessionToken]' --output text;",
 								"properties": null
 							}
 						],
