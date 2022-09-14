@@ -14,6 +14,18 @@
 			{
 				"name": "Build",
 				"segment_type": "build",
+				"publish_attributes": {
+					"publish": true,
+					"docker_images": [
+						{
+							"repository": "mobile-deposit-api",
+							"tags": [
+								"((application.version))"
+							],
+							"context": "."
+						}
+					]
+				},
 				"exit_actions": {},
 				"properties": [
 					{
