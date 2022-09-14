@@ -73,14 +73,8 @@
 						"name": "BuildWithMaven",
 						"steps": [
 							{
-								"name": "compile",
-								"definition": "Run the maven compile command",
-								"command": "mvn compile",
-								"properties": null
-							},
-							{
-								"name": "package",
-								"definition": "Run the maven package command",
+								"name": "verify",
+								"definition": "verify",
 								"command": "mvn verify",
 								"properties": null
 							},
@@ -96,6 +90,21 @@
 								"command": "cp target/surefire-reports/TEST-com.cloudbees.example.mobile.deposit.api.DepositEndpointTests.xml ./test.xml\ncp target/site/jacoco/jacoco.xml ./coverage.xml",
 								"properties": null
 							}
+						],
+						"docker_options": {}
+					},
+					{
+						"name": "BuildImage",
+						"steps": [
+							{
+								"name": "AwsCli",
+								"definition": "AwsCli",
+								"command": "apt-get -y -qq install awscli jq; env",
+								"properties": null
+							}
+						],
+						"run_after": [
+							"BuildWithMaven"
 						],
 						"docker_options": {}
 					}
