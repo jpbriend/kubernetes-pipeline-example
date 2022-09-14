@@ -110,7 +110,7 @@
 							{
 								"name": "dockerBuild",
 								"definition": "dockerBuild",
-								"command": "apt-get -y -qq install awscli jq;\nenv; \naws sts assume-role --role-arn 'arn:aws:iam::189768267137:role/GuideRailsRole' --role-session-name Arch-GR-Session \u003e temp.txt;\nexport AWS_ACCESS_KEY_ID=`cat temp.yxy | jq '.Credentials' | jq '.AccessKeyId' -r`;\nexport AWS_SECRET_ACCESS_KEY=`cat temp.txt | jq '.Credentials' | jq '.SecretAccessKey' -r`;\nexport AWS_SESSION_TOKEN=`cat temp.txt | jq '.Credentials' | jq '.SessionToken' -r`;\nrm temp.txt;\naws ecr get-login-password | docker login --username AWS --password-stdin 189768267137.dkr.ecr.us-east-1.amazonaws.com;",
+								"command": "apt-get -y -qq install awscli jq;\nenv; \naws sts assume-role --role-arn 'arn:aws:iam::189768267137:role/GuideRailsRole' --role-session-name Arch-GR-Session \u003e temp.txt;\nexport AWS_ACCESS_KEY_ID=`cat temp.txt | jq '.Credentials' | jq '.AccessKeyId' -r`;\nexport AWS_SECRET_ACCESS_KEY=`cat temp.txt | jq '.Credentials' | jq '.SecretAccessKey' -r`;\nexport AWS_SESSION_TOKEN=`cat temp.txt | jq '.Credentials' | jq '.SessionToken' -r`;\nrm temp.txt;\naws ecr get-login-password | docker login --username AWS --password-stdin 189768267137.dkr.ecr.us-east-1.amazonaws.com;",
 								"properties": null
 							}
 						],
