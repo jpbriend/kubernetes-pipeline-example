@@ -122,7 +122,7 @@
 							{
 								"name": "DeployToECS",
 								"definition": "DeployToECS",
-								"command": "env;\necho \"Deploying to AWS ECS...\";\ndocker run fabfuel/ecs-deploy:1.13.1 ecs deploy demo-cluster mobile-deposit-api --image mobile-deposit-api 189768267137.dkr.ecr.us-east-1.amazonaws.com/mobile-deposit-api:$APPLICATION_VERSION;",
+								"command": "env | grep AWS;\necho \"Deploying to AWS ECS...\";\ndocker run fabfuel/ecs-deploy:1.13.1 ecs deploy demo-cluster mobile-deposit-api --image mobile-deposit-api 189768267137.dkr.ecr.us-east-1.amazonaws.com/mobile-deposit-api:$APPLICATION_VERSION;",
 								"properties": null
 							}
 						],
