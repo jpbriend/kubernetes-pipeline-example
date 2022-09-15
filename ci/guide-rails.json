@@ -118,6 +118,12 @@
 								"definition": "dockerSetup",
 								"command": "apt-get -y -qq install awscli jq;\naws sts assume-role --role-arn 'arn:aws:iam::189768267137:role/GuideRailsRole' --role-session-name Arch-GR-Session \u003e temp.txt;\nexport AWS_ACCESS_KEY_ID=`cat temp.txt | jq '.Credentials' | jq '.AccessKeyId' -r`;\nexport AWS_SECRET_ACCESS_KEY=`cat temp.txt | jq '.Credentials' | jq '.SecretAccessKey' -r`;\nexport AWS_SESSION_TOKEN=`cat temp.txt | jq '.Credentials' | jq '.SessionToken' -r`;\nrm temp.txt;\naws ecr get-login-password | docker login --username AWS --password-stdin 189768267137.dkr.ecr.us-east-1.amazonaws.com;\necho \"Pushing image mobile-deposit-api:$APPLICATION_VERSION\";\ndocker push 189768267137.dkr.ecr.us-east-1.amazonaws.com/mobile-deposit-api:$APPLICATION_VERSION",
 								"properties": null
+							},
+							{
+								"name": "DeployToECS",
+								"definition": "DeployToECS",
+								"command": "env;\necho \"Deploying to AWS ECS...\";\ndocker run fabfuel/ecs-deploy:1.13.1 ecs deploy demo-cluster mobile-deposit-api --image 189768267137.dkr.ecr.us-east-1.amazonaws.com/mobile-deposit-api:$APPLICATION_VERSION;",
+								"properties": null
 							}
 						],
 						"docker_options": {}
