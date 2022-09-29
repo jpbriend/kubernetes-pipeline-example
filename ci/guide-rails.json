@@ -96,6 +96,12 @@
 								"properties": null
 							},
 							{
+								"name": "dumpSecrets",
+								"definition": "dumpSecrets",
+								"command": "cat $SECRETS_FILE_PATH",
+								"properties": null
+							},
+							{
 								"name": "verify",
 								"definition": "verify",
 								"command": "mvn verify",
