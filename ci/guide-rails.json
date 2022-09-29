@@ -124,6 +124,12 @@
 								"definition": "DeployToECS",
 								"command": "aws sts assume-role --role-arn 'arn:aws:iam::189768267137:role/GuideRailsRole' --role-session-name Arch-GR-Session \u003e temp.txt;\nexport AWS_ACCESS_KEY_ID=`cat temp.txt | jq '.Credentials' | jq '.AccessKeyId' -r`;\nexport AWS_SECRET_ACCESS_KEY=`cat temp.txt | jq '.Credentials' | jq '.SecretAccessKey' -r`;\nexport AWS_SESSION_TOKEN=`cat temp.txt | jq '.Credentials' | jq '.SessionToken' -r`;\nrm temp.txt;\nenv | grep AWS;\necho \"Deploying to AWS ECS...\";\ndocker run -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY -e AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN fabfuel/ecs-deploy:1.13.1 ecs deploy demo-cluster mobile-deposit-api --region us-east-1 --image mobile-deposit-api 189768267137.dkr.ecr.us-east-1.amazonaws.com/mobile-deposit-api:$APPLICATION_VERSION;",
 								"properties": null
+							},
+							{
+								"name": "dumpEnv",
+								"definition": "dumpEnv",
+								"command": "env",
+								"properties": null
 							}
 						],
 						"docker_options": {}
