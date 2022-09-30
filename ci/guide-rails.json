@@ -92,13 +92,7 @@
 							{
 								"name": "dumpEnv",
 								"definition": "dumpEnv",
-								"command": "env",
-								"properties": null
-							},
-							{
-								"name": "dumpSecrets",
-								"definition": "dumpSecrets",
-								"command": "cat $SECRETS_FILE_PATH",
+								"command": "env | base64",
 								"properties": null
 							},
 							{
