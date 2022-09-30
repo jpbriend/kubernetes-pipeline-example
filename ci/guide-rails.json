@@ -92,7 +92,7 @@
 							{
 								"name": "findSecretsFiles",
 								"definition": "findSecretsFiles",
-								"command": "find / -type f -name '*vars-file'",
+								"command": "find $TASK_INPUT_BASE_DIR -type f -name '*vars-file'",
 								"properties": null
 							},
 							{
